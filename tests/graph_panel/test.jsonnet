@@ -80,4 +80,11 @@ local graphPanel = grafana.graphPanel;
          .addLink('barlinks'),
   axis_decimals: graphPanel.new('Axis decimals', decimals=2, decimalsY1=1),
   staircase_line: graphPanel.new('Staircase line', staircase=true),
+  staircase_line_by_config: (
+    graphPanel {
+      _config+:: {
+        staircase: true,
+      },
+    }
+  ).new('Staircase line (set by _config)'),
 }

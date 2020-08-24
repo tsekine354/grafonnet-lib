@@ -1,24 +1,40 @@
 local timepickerlib = import 'timepicker.libsonnet';
 
 {
+  _config+:: {
+    editable: false,
+    style: 'dark',
+    tags: [],
+    time_from: 'now-6h',
+    time_to: 'now',
+    timezone: 'browser',
+    refresh: '',
+    timepicker: timepickerlib.new(),
+    graphTooltip: 'default',
+    hideControls: false,
+    schemaVersion: 14,
+    uid: '',
+    description: null,
+  },
+
   /**
    * @name dashboard.new
    */
   new(
     title,
-    editable=false,
-    style='dark',
-    tags=[],
-    time_from='now-6h',
-    time_to='now',
-    timezone='browser',
-    refresh='',
-    timepicker=timepickerlib.new(),
-    graphTooltip='default',
-    hideControls=false,
-    schemaVersion=14,
-    uid='',
-    description=null,
+    editable=self._config.editable,
+    style=self._config.style,
+    tags=self._config.tags,
+    time_from=self._config.time_from,
+    time_to=self._config.time_to,
+    timezone=self._config.timezone,
+    refresh=self._config.refresh,
+    timepicker=self._config.timepicker,
+    graphTooltip=self._config.graphTooltip,
+    hideControls=self._config.hideControls,
+    schemaVersion=self._config.schemaVersion,
+    uid=self._config.uid,
+    description=self._config.description,
   ):: {
     local it = self,
     _annotations:: [],
